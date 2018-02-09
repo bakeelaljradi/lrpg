@@ -2,6 +2,7 @@ package com.github.mpetersen.lrpg;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import com.github.mpetersen.lrpg.template.Template;
 import com.github.mpetersen.lrpg.value.Value;
@@ -14,7 +15,11 @@ public class Main {
    * @throws IOException
    */
   public static void main(final String[] args) throws IOException {
-    Files.lines(Paths.get("templates", "settings.batch")).map(line -> line.split("\t")).forEach(input -> {
+    final Path templatesPath = Paths.get("templates");
+    final Path presetsPath = Paths.get("presets");
+    Files.createDirectory(presetsPath);
+
+    Files.lines(templatesPath.resolve("settings.batch")).map(line -> line.split("\t")).forEach(input -> {
       final Template name = new Template(input[0]);
       final String setting = input[1];
       final Value start = new Value(input[2]);
@@ -22,7 +27,7 @@ public class Main {
       final Value increment = new Value(input[4]);
       final String tmplFile = input[5];
 
-      final Template template = new Template(Paths.get("templates", tmplFile));
+      final Template template = new Template(templatesPath.resolve(tmplFile));
 
       int i = 0;
       for (final Value value = start; value.isLessThanOrEquals(max); value.inc(increment)) {
@@ -38,7 +43,7 @@ public class Main {
         final String preset = template.toString();
 
         try {
-          Files.write(Paths.get("presets", name + "_" + value + ".lrtemplate"), preset.getBytes());
+          Files.write(presetsPath.resolve(name + "_" + value + ".lrtemplate"), preset.getBytes());
         } catch (final IOException e) {
           throw new IllegalStateException(e);
         }

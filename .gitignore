@@ -1,4 +1,4 @@
-presets/
+*.lrtemplate
 
 target/
 pom.xml.tag
