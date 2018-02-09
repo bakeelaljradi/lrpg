@@ -1,5 +1,5 @@
-00.$i Temperature	Temperature	2000	12000	500	wb.tmpl
-01.$i Tint	Tint	-100	100	10	wb.tmpl
+00.$i Temperature	WhiteBalance = "Custom", Temperature	2000	12000	500	basic.tmpl
+01.$i Tint	WhiteBalance = "Custom", Tint	-100	100	10	basic.tmpl
 02.$i Exposure	Exposure2012	-1.00	1.00	0.1	basic.tmpl
 03.$i Contrast	Contrast2012	-100	100	10	basic.tmpl
 04.$i Highlights	Highlights2012	-100	100	10	basic.tmpl
@@ -9,3 +9,7 @@
 08.$i Clarity	Clarity2012	-100	100	10	basic.tmpl
 09.$i Vibrance	Vibrance	-100	100	10	basic.tmpl
 10.$i Saturation	Saturation	-100	100	10	basic.tmpl
+11.$i Highlight	EnableSplitToning = true, SplitToningHighlightHue = 55, SplitToningHighlightSaturation	0	100	10	basic.tmpl
+12.$i Shadow	EnableSplitToning = true, SplitToningShadowHue = 225, SplitToningShadowSaturation	0	100	10	basic.tmpl
+13.$i Vignette	PostCropVignetteAmount	-100	100	10	vignette.tmpl
+14.$i Dehaze	EnableEffects = true, Dehaze	-100	100	10	basic.tmpl

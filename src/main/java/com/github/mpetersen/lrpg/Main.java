@@ -17,7 +17,9 @@ public class Main {
   public static void main(final String[] args) throws IOException {
     final Path templatesPath = Paths.get("templates");
     final Path presetsPath = Paths.get("presets");
-    Files.createDirectory(presetsPath);
+    if (!Files.exists(presetsPath)) {
+      Files.createDirectory(presetsPath);
+    }
 
     Files.lines(templatesPath.resolve("settings.batch")).map(line -> line.split("\t")).forEach(input -> {
       final Template name = new Template(input[0]);
