@@ -1,1 +1,3 @@
-# lrpg
+# Lightroom Preset Generator
+
+Generator for Lightroom Presets.
