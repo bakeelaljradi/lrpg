@@ -1,0 +1,13 @@
+s = {
+	internalName = "00-Temperature 2500",
+	title = "00-Temperature 01 [2500]",
+	type = "Develop",
+	value = {
+		settings = {
+			Temperature = 2500,
+			WhiteBalance = "Custom",
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}

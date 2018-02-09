@@ -1,0 +1,12 @@
+s = {
+	internalName = "08-Clarity -10",
+	title = "08-Clarity 09 [-10]",
+	type = "Develop",
+	value = {
+		settings = {
+			Clarity2012 = -10,
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}

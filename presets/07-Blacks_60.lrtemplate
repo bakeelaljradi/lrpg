@@ -1,0 +1,12 @@
+s = {
+	internalName = "07-Blacks 60",
+	title = "07-Blacks 16 [60]",
+	type = "Develop",
+	value = {
+		settings = {
+			Blacks2012 = 60,
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}

@@ -1,0 +1,12 @@
+s = {
+	internalName = "06-Whites 20",
+	title = "06-Whites 12 [20]",
+	type = "Develop",
+	value = {
+		settings = {
+			Whites2012 = 20,
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}

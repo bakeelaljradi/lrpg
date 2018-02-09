@@ -1,0 +1,12 @@
+s = {
+	internalName = "04-Highlights -60",
+	title = "04-Highlights 04 [-60]",
+	type = "Develop",
+	value = {
+		settings = {
+			Highlights2012 = -60,
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}

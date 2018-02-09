@@ -1,0 +1,12 @@
+s = {
+	internalName = "10-Saturation -90",
+	title = "10-Saturation 01 [-90]",
+	type = "Develop",
+	value = {
+		settings = {
+			Saturation = -90,
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}

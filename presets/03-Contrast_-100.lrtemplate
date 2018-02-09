@@ -1,0 +1,12 @@
+s = {
+	internalName = "03-Contrast -100",
+	title = "03-Contrast 00 [-100]",
+	type = "Develop",
+	value = {
+		settings = {
+			Contrast2012 = -100,
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}

@@ -1,0 +1,12 @@
+s = {
+	internalName = "02-Exposure -0.40",
+	title = "02-Exposure 06 [-0.40]",
+	type = "Develop",
+	value = {
+		settings = {
+			Exposure2012 = -0.40,
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}

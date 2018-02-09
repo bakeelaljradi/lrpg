@@ -1,0 +1,12 @@
+s = {
+	internalName = "05-Shadows 0",
+	title = "05-Shadows 10 [0]",
+	type = "Develop",
+	value = {
+		settings = {
+			Shadows2012 = 0,
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}

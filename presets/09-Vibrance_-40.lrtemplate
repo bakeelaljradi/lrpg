@@ -1,0 +1,12 @@
+s = {
+	internalName = "09-Vibrance -40",
+	title = "09-Vibrance 06 [-40]",
+	type = "Develop",
+	value = {
+		settings = {
+			Vibrance = -40,
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}

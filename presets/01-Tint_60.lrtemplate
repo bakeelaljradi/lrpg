@@ -1,0 +1,13 @@
+s = {
+	internalName = "01-Tint 60",
+	title = "01-Tint 16 [60]",
+	type = "Develop",
+	value = {
+		settings = {
+			Tint = 60,
+			WhiteBalance = "Custom",
+			ProcessVersion = "10.0",
+		},
+	},
+	version = 0,
+}
