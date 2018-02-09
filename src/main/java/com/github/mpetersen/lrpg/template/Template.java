@@ -30,8 +30,8 @@ public class Template {
     result = source;
   }
 
-  public void replace(final String name, final String value) {
-    result = result.replace("$" + name, value);
+  public void replace(final String name, final Object value) {
+    result = result.replace("$" + name, String.valueOf(value));
   }
 
   @Override

@@ -1,11 +1,11 @@
-00-Temperature Temperature 2000 12000 500 wb.tmpl
-01-Tint Tint -100 100 10 wb.tmpl
-02-Exposure Exposure2012 -1.00 1.00 0.1 basic.tmpl
-03-Contrast Contrast2012 -100 100 10 basic.tmpl
-04-Highlights Highlights2012 -100 100 10 basic.tmpl
-05-Shadows Shadows2012 -100 100 10 basic.tmpl
-06-Whites Whites2012 -100 100 10 basic.tmpl
-07-Blacks Blacks2012 -100 100 10 basic.tmpl
-08-Clarity Clarity2012 -100 100 10 basic.tmpl
-09-Vibrance Vibrance -100 100 10 basic.tmpl
-10-Saturation Saturation -100 100 10 basic.tmpl
+00.$i Temperature	Temperature	2000	12000	500	wb.tmpl
+01.$i Tint	Tint	-100	100	10	wb.tmpl
+02.$i Exposure	Exposure2012	-1.00	1.00	0.1	basic.tmpl
+03.$i Contrast	Contrast2012	-100	100	10	basic.tmpl
+04.$i Highlights	Highlights2012	-100	100	10	basic.tmpl
+05.$i Shadows	Shadows2012	-100	100	10	basic.tmpl
+06.$i Whites	Whites2012	-100	100	10	basic.tmpl
+07.$i Blacks	Blacks2012	-100	100	10	basic.tmpl
+08.$i Clarity	Clarity2012	-100	100	10	basic.tmpl
+09.$i Vibrance	Vibrance	-100	100	10	basic.tmpl
+10.$i Saturation	Saturation	-100	100	10	basic.tmpl
