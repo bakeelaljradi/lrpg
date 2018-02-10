@@ -20,9 +20,10 @@ class ValueFormat extends DecimalFormat {
         sb.append('0');
       }
     }
+    final String format = sb.toString();
     if (withSign) {
-      return "+" + sb.toString() + ";-" + sb.toString();
+      return "+" + format + ";-" + format;
     }
-    return sb.toString();
+    return format;
   }
 }

@@ -34,18 +34,15 @@ public class Main {
       int i = 0;
       for (final Value value = start; value.isLessThanOrEquals(max); value.inc(increment)) {
         name.reset();
-        template.reset();
-
         name.replace("i", String.format("%02d", i++));
 
+        template.reset();
         template.replace("value", value);
         template.replace("setting", setting);
         template.replace("name", name);
 
-        final String preset = template.toString();
-
         try {
-          Files.write(presetsPath.resolve(name + "_" + value + ".lrtemplate"), preset.getBytes());
+          Files.write(presetsPath.resolve(name + "_" + value + ".lrtemplate"), template.toString().getBytes());
         } catch (final IOException e) {
           throw new IllegalStateException(e);
         }
