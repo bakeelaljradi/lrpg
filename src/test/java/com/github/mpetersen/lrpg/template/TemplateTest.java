@@ -26,4 +26,11 @@ public class TemplateTest {
     assertThat(template.toString(), is("123, abc"));
   }
 
+  @Test
+  public void testWithFormat() {
+    final Template template = new Template("I am $[%02d]age years old.");
+    template.replace("age", 3);
+    assertThat(template.toString(), is("I am 03 years old."));
+  }
+
 }

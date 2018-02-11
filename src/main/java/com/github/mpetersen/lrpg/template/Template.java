@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Template {
   private final String source;
@@ -31,6 +33,11 @@ public class Template {
   }
 
   public void replace(final String name, final Object value) {
+    final Pattern regex = Pattern.compile("\\$\\[([^\\]]*)\\]" + name);
+    final Matcher matcher = regex.matcher(result);
+    while (matcher.find()) {
+      result = matcher.replaceFirst(String.format(matcher.group(1), value));
+    }
     result = result.replace("$" + name, String.valueOf(value));
   }
 

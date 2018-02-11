@@ -34,7 +34,7 @@ public class Main {
       int i = 0;
       for (final Value value = start; value.isLessThanOrEquals(max); value.inc(increment)) {
         name.reset();
-        name.replace("i", String.format("%02d", i++));
+        name.replace("i", i++);
 
         template.reset();
         template.replace("value", value);
