@@ -12,4 +12,7 @@ public class Configuration {
     return this;
   }
 
+  public Collection<Preset> getPresets() {
+    return presets;
+  }
 }

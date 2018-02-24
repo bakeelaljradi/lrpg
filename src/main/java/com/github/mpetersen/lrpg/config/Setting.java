@@ -1,10 +1,12 @@
 package com.github.mpetersen.lrpg.config;
 
+import com.github.mpetersen.lrpg.value.Value;
+
 public class Setting {
   private String key;
-  private String min;
-  private String max;
-  private String increment;
+  private Value min;
+  private Value max;
+  private Value increment;
 
   public Setting key(String key) {
     this.key = key;
@@ -12,17 +14,33 @@ public class Setting {
   }
 
   public Setting min(String min) {
-    this.min = min;
+    this.min = new Value(min);
     return this;
   }
 
   public Setting max(String max) {
-    this.max = max;
+    this.max = new Value(max);
     return this;
   }
 
   public Setting increment(String increment) {
-    this.increment = increment;
+    this.increment = new Value(increment);
     return this;
+  }
+
+  public String getKey() {
+    return key;
+  }
+
+  public Value getMin() {
+    return min;
+  }
+
+  public Value getMax() {
+    return max;
+  }
+
+  public Value getIncrement() {
+    return increment;
   }
 }

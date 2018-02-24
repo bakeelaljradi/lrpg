@@ -1,11 +1,15 @@
 package com.github.mpetersen.lrpg;
 
+import com.github.mpetersen.lrpg.config.Configuration;
+import com.github.mpetersen.lrpg.config.Preset;
+import com.github.mpetersen.lrpg.config.Setting;
+import com.github.mpetersen.lrpg.template.Template;
+import com.github.mpetersen.lrpg.value.Value;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import com.github.mpetersen.lrpg.template.Template;
-import com.github.mpetersen.lrpg.value.Value;
 
 public class Main {
   /**
@@ -21,32 +25,40 @@ public class Main {
       Files.createDirectory(presetsPath);
     }
 
-    Files.lines(templatesPath.resolve("settings.batch")).map(line -> line.split("\t")).forEach(input -> {
-      final Template name = new Template(input[0]);
-      final String setting = input[1];
-      final Value start = new Value(input[2]);
-      final Value max = new Value(input[3]);
-      final Value increment = new Value(input[4]);
-      final String tmplFile = input[5];
+    Configuration config = new Configuration();
+    Files.lines(templatesPath.resolve("config.csv")).map(line -> line.split(";")).forEach(input -> {
+      config.preset(new Preset()
+        .name(input[0])
+        .setting(new Setting()
+          .key(input[1])
+          .min(input[2])
+          .max(input[3])
+          .increment(input[4]))
+        .template(input[5]));
+    });
 
-      final Template template = new Template(templatesPath.resolve(tmplFile));
+    config.getPresets().forEach(preset -> {
+      final Template template = new Template(templatesPath.resolve(preset.getTemplate()));
+      Template name = preset.getName();
 
-      int i = 0;
-      for (final Value value = start; value.isLessThanOrEquals(max); value.inc(increment)) {
-        name.reset();
-        name.replace("i", i++);
+      preset.getSettings().forEach(setting -> {
+        int i = 0;
+        for (final Value value = setting.getMin(); value.isLessThanOrEquals(setting.getMax()); value.inc(setting.getIncrement())) {
+          name.reset();
+          name.replace("i", i++);
 
-        template.reset();
-        template.replace("value", value);
-        template.replace("setting", setting);
-        template.replace("name", name);
+          template.reset();
+          template.replace("value", value);
+          template.replace("setting", setting);
+          template.replace("name", name);
 
-        try {
-          Files.write(presetsPath.resolve(name + "_" + value + ".lrtemplate"), template.toString().getBytes());
-        } catch (final IOException e) {
-          throw new IllegalStateException(e);
+          try {
+            Files.write(presetsPath.resolve(name + "_" + value + ".lrtemplate"), template.toString().getBytes());
+          } catch (final IOException e) {
+            throw new IllegalStateException(e);
+          }
         }
-      }
+      });
     });
   }
 }
