@@ -1,0 +1,9 @@
+{
+	templateDir: "templates",
+	outputDir: "presets",
+	[
+		{
+			templ
+		}
+	]
+}

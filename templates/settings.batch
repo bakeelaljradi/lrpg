@@ -1,15 +1,15 @@
-00.$[%02d]i Temperature	WhiteBalance = "Custom", Temperature	2000	12000	500	basic.tmpl
-01.$[%02d]i Tint	WhiteBalance = "Custom", Tint	-100	100	10	basic.tmpl
-02.$[%02d]i Exposure	Exposure2012	-1.00	1.00	0.1	basic.tmpl
-03.$[%02d]i Contrast	Contrast2012	-100	100	10	basic.tmpl
-04.$[%02d]i Highlights	Highlights2012	-100	100	10	basic.tmpl
-05.$[%02d]i Shadows	Shadows2012	-100	100	10	basic.tmpl
-06.$[%02d]i Whites	Whites2012	-100	100	10	basic.tmpl
-07.$[%02d]i Blacks	Blacks2012	-100	100	10	basic.tmpl
-08.$[%02d]i Clarity	Clarity2012	-100	100	10	basic.tmpl
-09.$[%02d]i Vibrance	Vibrance	-100	100	10	basic.tmpl
-10.$[%02d]i Saturation	Saturation	-100	100	10	basic.tmpl
-11.$[%02d]i Highlight	EnableSplitToning = true, SplitToningHighlightHue = 55, SplitToningHighlightSaturation	0	100	10	basic.tmpl
-12.$[%02d]i Shadow	EnableSplitToning = true, SplitToningShadowHue = 225, SplitToningShadowSaturation	0	100	10	basic.tmpl
-13.$[%02d]i Vignette	PostCropVignetteAmount	-100	100	10	vignette.tmpl
-14.$[%02d]i Dehaze	EnableEffects = true, Dehaze	-100	100	10	basic.tmpl
+00.$[%02d]i Temperature	WhiteBalance = "Custom", Temperature	2000	12000	500	basic.template
+01.$[%02d]i Tint	WhiteBalance = "Custom", Tint	-100	100	10	basic.template
+02.$[%02d]i Exposure	Exposure2012	-1.00	1.00	0.1	basic.template
+03.$[%02d]i Contrast	Contrast2012	-100	100	10	basic.template
+04.$[%02d]i Highlights	Highlights2012	-100	100	10	basic.template
+05.$[%02d]i Shadows	Shadows2012	-100	100	10	basic.template
+06.$[%02d]i Whites	Whites2012	-100	100	10	basic.template
+07.$[%02d]i Blacks	Blacks2012	-100	100	10	basic.template
+08.$[%02d]i Clarity	Clarity2012	-100	100	10	basic.template
+09.$[%02d]i Vibrance	Vibrance	-100	100	10	basic.template
+10.$[%02d]i Saturation	Saturation	-100	100	10	basic.template
+11.$[%02d]i Highlight	EnableSplitToning = true, SplitToningHighlightHue = 55, SplitToningHighlightSaturation	0	100	10	basic.template
+12.$[%02d]i Shadow	EnableSplitToning = true, SplitToningShadowHue = 225, SplitToningShadowSaturation	0	100	10	basic.template
+13.$[%02d]i Vignette	PostCropVignetteAmount	-100	100	10	vignette.template
+14.$[%02d]i Dehaze	EnableEffects = true, Dehaze	-100	100	10	basic.template

@@ -15,7 +15,7 @@ public class Value {
    *
    * The format can contain any number, a leading minus sign and a decimal separator ".".
    *
-   * @param str The input String.
+   * @param input The input String.
    */
   public Value(final String input) {
     final Matcher m = REGEX_INPUT.matcher(input);

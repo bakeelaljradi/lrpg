@@ -1,9 +1,11 @@
 package com.github.mpetersen.lrpg.value;
 
+import org.junit.jupiter.api.Test;
+
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import org.junit.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValueTest {
   @Test
@@ -21,19 +23,25 @@ public class ValueTest {
     new Value("-1.23");
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @Test
   public void testInvalidInputDecimalPointNoFraction() {
-    new Value("1.");
+    assertThrows(IllegalArgumentException.class, () -> {
+      new Value("1.");
+    });
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @Test
   public void testInvalidInputTooManyDecimalPoints() {
-    new Value("1.2.3");
+    assertThrows(IllegalArgumentException.class, () -> {
+      new Value("1.2.3");
+    });
   }
 
-  @Test(expected = IllegalArgumentException.class)
+  @Test
   public void testInvalidInputIllegalCharacters() {
-    new Value("ab.12");
+    assertThrows(IllegalArgumentException.class, () -> {
+      new Value("ab.12");
+    });
   }
 
   @Test
