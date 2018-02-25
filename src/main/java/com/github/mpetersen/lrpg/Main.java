@@ -3,62 +3,142 @@ package com.github.mpetersen.lrpg;
 import com.github.mpetersen.lrpg.config.Configuration;
 import com.github.mpetersen.lrpg.config.Preset;
 import com.github.mpetersen.lrpg.config.Setting;
-import com.github.mpetersen.lrpg.template.Template;
-import com.github.mpetersen.lrpg.value.Value;
+import com.github.mpetersen.lrpg.generator.PresetGenerator;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Main {
   /**
    * Runs the program.
    *
-   * @param args
-   * @throws IOException
+   * @param args No arguments required.
    */
   public static void main(final String[] args) throws IOException {
-    final Path templatesPath = Paths.get("templates");
-    final Path presetsPath = Paths.get("presets");
-    if (!Files.exists(presetsPath)) {
-      Files.createDirectory(presetsPath);
-    }
-
-    Configuration config = new Configuration();
-    Files.lines(templatesPath.resolve("config.csv")).map(line -> line.split(";")).forEach(input -> {
-      config.preset(new Preset()
-        .name(input[0])
+    final Configuration config =  new Configuration()
+      .presetsPath("presets")
+      .templatesPath("templates")
+      .preset(new Preset()
+        .name("00.$[%02d]i Temperature")
         .setting(new Setting()
-          .key(input[1])
-          .min(input[2])
-          .max(input[3])
-          .increment(input[4]))
-        .template(input[5]));
-    });
+          .name("WhiteBalance = \"Custom\", Temperature")
+          .min("2000")
+          .max("12000")
+          .increment("500"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("01.$[%02d]i Tint")
+        .setting(new Setting()
+          .name("Balance = \"Custom\", Tint")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("02.$[%02d]i Exposure")
+        .setting(new Setting()
+          .name("Exposure2012")
+          .min("-1.00")
+          .max("1.00")
+          .increment("0.1"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("03.$[%02d]i Contrast")
+        .setting(new Setting()
+          .name("Contrast2012")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("04.$[%02d]i Highlights")
+        .setting(new Setting()
+          .name("Highlights2012")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("05.$[%02d]i Shadows")
+        .setting(new Setting()
+          .name("Shadows2012")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("06.$[%02d]i Whites")
+        .setting(new Setting()
+          .name("Whites2012")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("07.$[%02d]i Blacks")
+        .setting(new Setting()
+          .name("Blacks2012")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("08.$[%02d]i Clarity")
+        .setting(new Setting()
+          .name("Clarity2012")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("09.$[%02d]i Vibrance")
+        .setting(new Setting()
+          .name("Vibrance")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("10.$[%02d]i Saturation")
+        .setting(new Setting()
+          .name("Saturation")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("11.$[%02d]i Highlight")
+        .setting(new Setting()
+          .name("EnableSplitToning = true, SplitToningHighlightHue = 55, SplitToningHighlightSaturation")
+          .min("0")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("12.$[%02d]i Shadow")
+        .setting(new Setting()
+          .name("EnableSplitToning = true, SplitToningHighlightHue = 55, SplitToningShadowSaturation")
+          .min("0")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"))
+      .preset(new Preset()
+        .name("13.$[%02d]i Vignette")
+        .setting(new Setting()
+          .name("PostCropVignetteAmount")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("vignette.template"))
+      .preset(new Preset()
+        .name("14.$[%02d]i Dehaze")
+        .setting(new Setting()
+          .name("EnableEffects = true, Dehaze")
+          .min("-100")
+          .max("100")
+          .increment("10"))
+        .template("basic.template"));
 
-    config.getPresets().forEach(preset -> {
-      final Template template = new Template(templatesPath.resolve(preset.getTemplate()));
-      Template name = preset.getName();
-
-      preset.getSettings().forEach(setting -> {
-        int i = 0;
-        for (final Value value = setting.getMin(); value.isLessThanOrEquals(setting.getMax()); value.inc(setting.getIncrement())) {
-          name.reset();
-          name.replace("i", i++);
-
-          template.reset();
-          template.replace("value", value);
-          template.replace("setting", setting);
-          template.replace("name", name);
-
-          try {
-            Files.write(presetsPath.resolve(name + "_" + value + ".lrtemplate"), template.toString().getBytes());
-          } catch (final IOException e) {
-            throw new IllegalStateException(e);
-          }
-        }
-      });
-    });
+    final PresetGenerator generator = new PresetGenerator(config);
+    generator.generate();
   }
 }

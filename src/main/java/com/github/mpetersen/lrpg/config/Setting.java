@@ -3,13 +3,13 @@ package com.github.mpetersen.lrpg.config;
 import com.github.mpetersen.lrpg.value.Value;
 
 public class Setting {
-  private String key;
+  private String name;
   private Value min;
   private Value max;
   private Value increment;
 
-  public Setting key(String key) {
-    this.key = key;
+  public Setting name(String name) {
+    this.name = name;
     return this;
   }
 
@@ -28,8 +28,8 @@ public class Setting {
     return this;
   }
 
-  public String getKey() {
-    return key;
+  public String getName() {
+    return name;
   }
 
   public Value getMin() {
